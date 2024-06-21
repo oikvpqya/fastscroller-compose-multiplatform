@@ -3,6 +3,7 @@ androidGradlePlugin = "8.5.0"
 jetbrainsCompose = "1.6.11"
 kotlin = "2.0.0"
 kotlinxCoroutines = "1.8.1"
+vanniktechMavenPublish = "0.29.0"
 
 androidxActivity = "1.9.0"
 androidxCore = "1.13.1"
@@ -25,3 +26,4 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbrainsCompose" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }
