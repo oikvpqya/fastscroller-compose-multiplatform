@@ -1,0 +1,99 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
+plugins {
+    alias libs.plugins.android.application
+    alias libs.plugins.compose.compiler
+    alias libs.plugins.jetbrains.compose
+    alias libs.plugins.kotlin.multiplatform
+}
+
+kotlin {
+    jvmToolchain(17)
+    androidTarget()
+    jvm("desktop")
+
+    wasmJs {
+        moduleName = "composeApp"
+        browser {
+            commonWebpackConfig {
+                outputFileName = "composeApp.js"
+            }
+        }
+        binaries.executable()
+    }
+
+    sourceSets {
+        androidMain {
+            dependencies {
+                implementation libs.androidx.core.ktx
+                implementation libs.androidx.activity.compose
+                implementation libs.kotlinx.coroutines.android
+            }
+        }
+
+        commonMain {
+            dependencies {
+                implementation compose.foundation
+                implementation compose.material3
+                implementation compose.ui
+                implementation libs.kotlinx.coroutines.core
+                implementation project(":fastscroller-core")
+                implementation project(":fastscroller-indicator")
+                implementation project(":fastscroller-material3")
+            }
+        }
+
+        desktopMain {
+            dependencies {
+                implementation compose.desktop.currentOs
+                implementation libs.kotlinx.coroutines.swing
+            }
+        }
+
+        wasmJsMain {
+            dependencies {
+            }
+        }
+    }
+}
+
+android {
+    compileSdk 34
+    namespace "oikvpqya.compose.sample"
+
+    defaultConfig {
+        applicationId "oikvpqya.compose.sample.kmp"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    buildFeatures {
+        compose true
+    }
+}
+
+compose {
+    desktop {
+        application {
+            mainClass = "MainKt"
+
+            nativeDistributions {
+                targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+                packageName = "oikvpqya.compose.sample.kmp"
+                packageVersion = "1.0.0"
+            }
+        }
+    }
+
+    experimental {
+        web.application {}
+    }
+}

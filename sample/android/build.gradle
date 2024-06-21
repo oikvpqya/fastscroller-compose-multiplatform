@@ -1,0 +1,44 @@
+plugins {
+    alias libs.plugins.android.application
+    alias libs.plugins.compose.compiler
+    alias libs.plugins.jetbrains.compose
+    alias libs.plugins.kotlin.android
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+android {
+    compileSdk 34
+    namespace "oikvpqya.compose.sample"
+
+    defaultConfig {
+        applicationId "oikvpqya.compose.sample.android"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    buildFeatures {
+        compose true
+    }
+}
+
+dependencies {
+    implementation libs.androidx.activity.compose
+    implementation libs.androidx.compose.foundation
+    implementation libs.androidx.compose.material
+    implementation libs.androidx.compose.ui
+    implementation libs.androidx.core.ktx
+    implementation libs.kotlinx.coroutines.android
+    implementation project(":fastscroller-core")
+    implementation project(":fastscroller-material")
+}
