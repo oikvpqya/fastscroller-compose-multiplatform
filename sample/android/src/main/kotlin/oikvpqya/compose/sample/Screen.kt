@@ -14,9 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import oikvpqya.compose.fastscroller.VerticalScrollbar
-import oikvpqya.compose.fastscroller.material.defaultMaterialScrollbarStyle
-import oikvpqya.compose.fastscroller.rememberScrollbarAdapter
+import io.github.oikvpqya.compose.fastscroller.VerticalScrollbar
+import io.github.oikvpqya.compose.fastscroller.material.defaultMaterialScrollbarStyle
+import io.github.oikvpqya.compose.fastscroller.rememberScrollbarAdapter
 
 @Composable
 fun Screen() {

@@ -59,10 +59,10 @@ kotlin {
 
 android {
     compileSdk 34
-    namespace "oikvpqya.compose.sample"
+    namespace "io.github.oikvpqya.compose.sample"
 
     defaultConfig {
-        applicationId "oikvpqya.compose.sample.kmp"
+        applicationId "io.github.oikvpqya.compose.sample.kmp"
         minSdk 21
         targetSdk 34
         versionCode 1
@@ -87,7 +87,7 @@ compose {
 
             nativeDistributions {
                 targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-                packageName = "oikvpqya.compose.sample.kmp"
+                packageName = "io.github.oikvpqya.compose.sample.kmp"
                 packageVersion = "1.0.0"
             }
         }

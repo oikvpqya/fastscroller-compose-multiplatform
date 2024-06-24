@@ -17,7 +17,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "kmp-fastscroller"
+rootProject.name = "fastscroller-compose-multiplatform"
 
 include ":fastscroller-core"
 include ":fastscroller-indicator"

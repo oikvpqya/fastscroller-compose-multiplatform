@@ -68,7 +68,7 @@ kotlin {
 
 android {
     compileSdk = 34
-    namespace = "oikvpqya.compose.fastscroller"
+    namespace = "io.github.oikvpqya.compose.fastscroller"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 

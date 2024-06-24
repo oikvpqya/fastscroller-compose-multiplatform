@@ -11,10 +11,10 @@ kotlin {
 
 android {
     compileSdk 34
-    namespace "oikvpqya.compose.sample"
+    namespace "io.github.oikvpqya.compose.sample"
 
     defaultConfig {
-        applicationId "oikvpqya.compose.sample.android"
+        applicationId "io.github.oikvpqya.compose.sample.android"
         minSdk 21
         targetSdk 34
         versionCode 1
