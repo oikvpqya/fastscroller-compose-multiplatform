@@ -1,21 +1,22 @@
 ## FastScroller for Compose Multiplatform
 
-Implementing user scroll bars in Compose Multiplatform
+Implementing scroll bars in Compose Multiplatform
 
-The scroll bar implementations available in `androidx.compose.foundation:foundation` library, but it is currently available for Compose Multiplatform without Android. (To be precise, it is available on all platforms except Android, but the implementation is not optimized for mobile.)
+The scroll bar implementations available in `androidx.compose.foundation:foundation` library, but it is [currently available for Compose Multiplatform without Android](https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials/Desktop_Components#scrollbars). (To be precise, it is available on all platforms except Android, but the implementation is not optimized for mobile.)
 
 This library changes that, by providing the scroll bar implementations for many of the platforms supported by Compose Multiplatform.
 And more changes inspired by [Google's Launcher3 FastScroller](https://android.googlesource.com/platform/packages/apps/Launcher3/).
+
+![demo-gif](art/demo.gif)
 
 ## Usage
 
 Usage is very simple:
 
 ```kotlin
-import androidx.compose.foundation.lazy.rememberLazyListState
-import oikvpqya.compose.fastscroller.VerticalScrollbar
-import oikvpqya.compose.fastscroller.material.defaultMaterialScrollbarStyle
-import oikvpqya.compose.fastscroller.rememberScrollbarAdapter
+import io.github.oikvpqya.compose.fastscroller.VerticalScrollbar
+import io.github.oikvpqya.compose.fastscroller.material.defaultMaterialScrollbarStyle
+import io.github.oikvpqya.compose.fastscroller.rememberScrollbarAdapter
 
 @Composable
 fun Screen() {
@@ -42,9 +43,38 @@ fun Screen() {
 
 See [samples](https://github.com/oikvpqya/fastscroller-compose-multiplatform/tree/main/sample).
 
-## Download
+In [kmp sample app](https://github.com/oikvpqya/fastscroller-compose-multiplatform/blob/main/sample/kmp/src/commonMain/kotlin/Screen.kt), you can see an example of a scrollbar indicator.
 
-Not yet.
+## Installation
+
+```gradle
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "io.github.oikvpqya.compose.fastscroller:fastscroller-core:0.2.0"
+
+    // Optional: Provides scroll bar Material Design 2 theme by defaultMaterialScrollbarStyle
+    implementation "io.github.oikvpqya.compose.fastscroller:fastscroller-material:0.2.0"
+
+    // Optional: Provides scroll bar Material Design 3 theme by defaultMaterialScrollbarStyle
+    implementation "io.github.oikvpqya.compose.fastscroller:fastscroller-material3:0.2.0"
+
+    // Optional: Provides scroll bar indicator shape
+    implementation "io.github.oikvpqya.compose.fastscroller:fastscroller-indicator:0.2.0"
+}
+```
+
+## Credits
+
+FastScroller for Compose Multiplatform is inspired by the following libraries:
+
+[JetBrains's Compose Multiplatform Scrollbar](https://github.com/JetBrains/compose-multiplatform-core/blob/jb-main/compose/foundation/foundation/src/skikoMain/kotlin/androidx/compose/foundation/Scrollbar.skiko.kt)
+
+[Google's Launcher3 FastScroller](https://android.googlesource.com/platform/packages/apps/Launcher3/)
+
+
 
 ## License
 
