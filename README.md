@@ -41,7 +41,7 @@ fun Screen() {
 }
 ```
 
-See [samples](https://github.com/oikvpqya/fastscroller-compose-multiplatform/tree/main/sample).
+See [samples](https://github.com/oikvpqya/fastscroller-compose-multiplatform/tree/main/sample) or [github page](https://oikvpqya.github.io/fastscroller-compose-multiplatform/).
 
 In [kmp sample app](https://github.com/oikvpqya/fastscroller-compose-multiplatform/blob/main/sample/kmp/src/commonMain/kotlin/Screen.kt), you can see an example of a scrollbar indicator.
 
