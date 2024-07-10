@@ -44,7 +44,7 @@ fun Screen(
         SegmentedButtons(selected) { selected = it }
         Box(Modifier.fillMaxSize()) {
             LazyColumn(Modifier.fillMaxSize(), state) {
-                items(20) { index -> TextItem(index = index) }
+                items(100) { index -> TextItem(index = index) }
             }
             Row(Modifier.align(Alignment.TopEnd)) {
                 when(selected) {
