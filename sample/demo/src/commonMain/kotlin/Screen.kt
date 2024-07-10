@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
@@ -31,27 +31,27 @@ enum class ScrollbarSelection {
 }
 
 @Composable
-fun Screen() {
+fun Screen(
+    modifier: Modifier = Modifier,
+) {
     val state = rememberLazyListState()
     var selected by remember { mutableStateOf(ScrollbarSelection.Desktop) }
 
-    Column {
+    Column(modifier) {
+        SelectionContainer {
+            Text("GitHub:\nhttps://github.com/oikvpqya/fastscroller-compose-multiplatform/tree/main/sample/demo")
+        }
         SegmentedButtons(selected) { selected = it }
-        Box(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            LazyColumn(modifier = Modifier.fillMaxSize(), state = state) {
+        Box(Modifier.fillMaxSize()) {
+            LazyColumn(Modifier.fillMaxSize(), state) {
                 items(20) { index -> TextItem(index = index) }
             }
-            Row(
-                modifier = Modifier.align(Alignment.TopEnd)
-            ) {
+            Row(Modifier.align(Alignment.TopEnd)) {
                 when(selected) {
                     ScrollbarSelection.Desktop -> {
                         DesktopScrollbar(
                             state = state,
-                            modifier = Modifier
-                                .fillMaxHeight(),
+                            modifier = Modifier.fillMaxHeight(),
                         )
                     }
                     ScrollbarSelection.FastScroller -> {
@@ -74,13 +74,12 @@ fun Screen() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SegmentedButtons(
     selected: ScrollbarSelection,
     onClick: (ScrollbarSelection) -> Unit,
 ) {
-    SingleChoiceSegmentedButtonRow {
+    SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
         SegmentedButton(
             shape = SegmentedButtonDefaults.itemShape(index = 0, count = 3),
             onClick = { onClick(ScrollbarSelection.Desktop) },
