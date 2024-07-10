@@ -1,7 +1,8 @@
 [versions]
 androidGradlePlugin = "8.5.0"
 jetbrainsCompose = "1.7.0-alpha01"
-kotlin = "2.0.0"
+# https://github.com/JetBrains/compose-multiplatform/issues/5045
+kotlin = "2.0.10-RC-518"
 kotlinxCoroutines = "1.8.1"
 vanniktechMavenPublish = "0.29.0"
 
