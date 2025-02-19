@@ -79,8 +79,8 @@ FastScroller for Compose Multiplatform is inspired by the following libraries:
 ## License
 
 ```
-Copyright 2024 The Android Open Source Project
-Portions 2024 oikvpqya Yuya
+Copyright 2025 The Android Open Source Project
+Portions 2025 oikvpqya Yuya
  
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

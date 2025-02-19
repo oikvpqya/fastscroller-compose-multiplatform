@@ -1,14 +1,13 @@
 [versions]
 androidGradlePlugin = "8.5.0"
-jetbrainsCompose = "1.7.0-alpha01"
-# https://github.com/JetBrains/compose-multiplatform/issues/5045
-kotlin = "2.0.10-RC-518"
+jetbrainsCompose = "1.7.3"
+kotlin = "2.0.21"
 kotlinxCoroutines = "1.8.1"
 vanniktechMavenPublish = "0.29.0"
 
 androidxActivity = "1.9.0"
 androidxCore = "1.13.1"
-androidxCompose = "1.7.0-beta03"
+androidxCompose = "1.7.6"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
