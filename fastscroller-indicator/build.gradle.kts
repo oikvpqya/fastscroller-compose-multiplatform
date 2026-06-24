@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kotlin.multiplatform)
@@ -7,17 +7,19 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(11)
 
     applyDefaultHierarchyTemplate()
 
-    androidTarget {
-        publishAllLibraryVariants()
+    android {
+        namespace = "io.github.oikvpqya.compose.fastscroller.indicator"
+        compileSdk = 36
+        minSdk = 23
     }
 
     jvm()
 
-    js(IR) {
+    js {
         browser()
     }
 
@@ -25,11 +27,9 @@ kotlin {
         browser()
     }
 
-    macosX64()
     macosArm64()
 
     listOf(
-        iosX64(),
         iosArm64(),
         iosSimulatorArm64(),
     ).forEach { target ->
@@ -41,23 +41,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(compose.ui)
+                api(libs.compose.ui)
             }
-        }
-    }
-}
-
-android {
-    compileSdk = 34
-    namespace = "io.github.oikvpqya.compose.fastscroller.indicator"
-
-    defaultConfig {
-        minSdk = 21
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
         }
     }
 }

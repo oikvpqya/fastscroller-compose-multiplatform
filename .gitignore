@@ -9,3 +9,6 @@ build
 .externalNativeBuild
 .cxx
 .kotlin
+
+# Workaround refreshVersions bug
+versions.properties
