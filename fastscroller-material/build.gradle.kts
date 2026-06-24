@@ -41,9 +41,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(compose.foundation)
-                api(compose.material)
-                api(compose.ui)
+                api(libs.compose.foundation)
+                api(libs.compose.material)
+                api(libs.compose.ui)
                 api(project(":fastscroller-core"))
             }
         }

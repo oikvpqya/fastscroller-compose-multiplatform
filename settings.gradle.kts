@@ -27,16 +27,16 @@ dependencyResolutionManagement {
 
 rootProject.name = "fastscroller-compose-multiplatform"
 
-include ":fastscroller-core"
-include ":fastscroller-indicator"
-include ":fastscroller-material"
-include ":fastscroller-material3"
-include ":sample:android"
-include ":sample:kmp"
-include ":sample:kmp-android"
-include ":sample:kmp-desktop"
-include ":sample:kmp-web"
-include ":sample:demo"
-include ":sample:demo-android"
-include ":sample:demo-desktop"
-include ":sample:demo-web"
+include(":fastscroller-core")
+include(":fastscroller-indicator")
+include(":fastscroller-material")
+include(":fastscroller-material3")
+include(":sample:android")
+include(":sample:kmp")
+include(":sample:kmp-android")
+include(":sample:kmp-desktop")
+include(":sample:kmp-web")
+include(":sample:demo")
+include(":sample:demo-android")
+include(":sample:demo-desktop")
+include(":sample:demo-web")

@@ -103,10 +103,16 @@ with a theme-free `defaultScrollbarStyle()` in core and theme-aware variants in 
 
 ## Conventions
 
+- All build scripts are Kotlin DSL (`*.gradle.kts`, including `settings.gradle.kts`) — use `=`
+  property assignment and `alias(libs.plugins.x)` / `implementation(...)` call syntax.
 - Library modules target `jvmToolchain(11)` (Compose 1.11 requires JVM 11+ bytecode); sample
   modules target `jvmToolchain(17)`.
 - Dependencies and plugin versions are centralized in `gradle/libs.versions.toml`; reference them
-  via `libs.*` aliases rather than hardcoding versions.
+  via `libs.*` aliases rather than hardcoding versions. Compose is depended on by **direct
+  coordinates** (`libs.compose.*` → `org.jetbrains.compose.*`), not the deprecated `compose.foundation`
+  DSL accessors. Note `compose-material3` is versioned independently (`composeMaterial3`) from the
+  rest of Compose (`jetbrainsCompose`). The desktop modules' `compose.desktop.currentOs` is the one
+  Compose DSL accessor that is *not* deprecated.
 - Each module sets a unique Android `namespace` (e.g. `...fastscroller.material3`) — keep these
   distinct when adding modules (`android.uniquePackageNames=true` enforces it on AGP 9).
 - Files ported from AOSP/JetBrains retain the Apache 2.0 copyright header; preserve it when editing

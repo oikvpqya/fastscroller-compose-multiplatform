@@ -41,10 +41,10 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(compose.animation)
-                api(compose.foundation)
-                api(compose.runtime)
-                api(compose.ui)
+                api(libs.compose.animation)
+                api(libs.compose.foundation)
+                api(libs.compose.runtime)
+                api(libs.compose.ui)
                 api(libs.kotlinx.coroutines.core)
             }
         }

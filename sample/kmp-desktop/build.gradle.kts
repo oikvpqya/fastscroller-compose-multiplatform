@@ -1,9 +1,9 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    alias libs.plugins.kotlin.jvm
-    alias libs.plugins.compose.compiler
-    alias libs.plugins.jetbrains.compose
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.jetbrains.compose)
 }
 
 kotlin {
@@ -11,9 +11,9 @@ kotlin {
 }
 
 dependencies {
-    implementation project(":sample:kmp")
-    implementation compose.desktop.currentOs
-    implementation libs.kotlinx.coroutines.swing
+    implementation(project(":sample:kmp"))
+    implementation(compose.desktop.currentOs)
+    implementation(libs.kotlinx.coroutines.swing)
 }
 
 compose.desktop {
