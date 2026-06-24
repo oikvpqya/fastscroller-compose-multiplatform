@@ -2,7 +2,6 @@ plugins {
     alias libs.plugins.android.application
     alias libs.plugins.compose.compiler
     alias libs.plugins.jetbrains.compose
-    alias libs.plugins.kotlin.android
 }
 
 kotlin {
@@ -10,13 +9,13 @@ kotlin {
 }
 
 android {
-    compileSdk 34
+    compileSdk 36
     namespace "io.github.oikvpqya.compose.sample"
 
     defaultConfig {
         applicationId "io.github.oikvpqya.compose.sample.android"
-        minSdk 21
-        targetSdk 34
+        minSdk 23
+        targetSdk 36
         versionCode 1
         versionName "1.0.0"
     }
@@ -34,9 +33,9 @@ android {
 
 dependencies {
     implementation libs.androidx.activity.compose
-    implementation libs.androidx.compose.foundation
-    implementation libs.androidx.compose.material
-    implementation libs.androidx.compose.ui
+    implementation compose.foundation
+    implementation compose.material
+    implementation compose.ui
     implementation libs.androidx.core.ktx
     implementation libs.kotlinx.coroutines.android
     implementation project(":fastscroller-core")

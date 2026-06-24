@@ -1,7 +1,5 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-
 plugins {
-    alias libs.plugins.android.application
+    alias libs.plugins.android.kotlin.multiplatform.library
     alias libs.plugins.compose.compiler
     alias libs.plugins.jetbrains.compose
     alias libs.plugins.kotlin.multiplatform
@@ -9,28 +7,20 @@ plugins {
 
 kotlin {
     jvmToolchain(17)
-    androidTarget()
+
+    android {
+        namespace = "io.github.oikvpqya.compose.sample.demo.shared"
+        compileSdk = 36
+        minSdk = 23
+    }
+
     jvm("desktop")
 
     wasmJs {
-        moduleName = "composeApp"
-        browser {
-            commonWebpackConfig {
-                outputFileName = "composeApp.js"
-            }
-        }
-        binaries.executable()
+        browser()
     }
 
     sourceSets {
-        androidMain {
-            dependencies {
-                implementation libs.androidx.core.ktx
-                implementation libs.androidx.activity.compose
-                implementation libs.kotlinx.coroutines.android
-            }
-        }
-
         commonMain {
             dependencies {
                 implementation compose.foundation
@@ -42,58 +32,5 @@ kotlin {
                 implementation project(":fastscroller-material3")
             }
         }
-
-        desktopMain {
-            dependencies {
-                implementation compose.desktop.currentOs
-                implementation libs.kotlinx.coroutines.swing
-            }
-        }
-
-        wasmJsMain {
-            dependencies {
-            }
-        }
-    }
-}
-
-android {
-    compileSdk 34
-    namespace "io.github.oikvpqya.compose.sample"
-
-    defaultConfig {
-        applicationId "io.github.oikvpqya.compose.sample.demo"
-        minSdk 21
-        targetSdk 34
-        versionCode 1
-        versionName "1.0.0"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
-    }
-
-    buildFeatures {
-        compose true
-    }
-}
-
-compose {
-    desktop {
-        application {
-            mainClass = "MainKt"
-
-            nativeDistributions {
-                targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-                packageName = "io.github.oikvpqya.compose.sample.demo"
-                packageVersion = "1.0.0"
-            }
-        }
-    }
-
-    experimental {
-        web.application {}
     }
 }

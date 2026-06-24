@@ -1,0 +1,29 @@
+plugins {
+    alias libs.plugins.kotlin.multiplatform
+    alias libs.plugins.compose.compiler
+    alias libs.plugins.jetbrains.compose
+}
+
+kotlin {
+    wasmJs {
+        moduleName = "composeApp"
+        browser {
+            commonWebpackConfig {
+                outputFileName = "composeApp.js"
+            }
+        }
+        binaries.executable()
+    }
+
+    sourceSets {
+        wasmJsMain {
+            dependencies {
+                implementation project(":sample:demo")
+                implementation compose.runtime
+                implementation compose.foundation
+                implementation compose.material3
+                implementation compose.ui
+            }
+        }
+    }
+}

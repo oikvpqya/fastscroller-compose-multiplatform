@@ -5,7 +5,7 @@
         android:label="FastScroller-Demo"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name="io.github.oikvpqya.compose.sample.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
